@@ -1,0 +1,43 @@
+package pack1;
+ 
+class A
+{
+    public A()
+    {
+          //public constructor
+    }
+}
+ 
+package pack2;
+ 
+import pack1.*;
+ 
+class B
+{
+     A a = new A();	//Compile Time Error
+}
+
+
+Check if compile time error exists. If yes, correct the code to remove the error?
+
+Answer: Class-A itself has been defined with default access modifier. 
+That means Class-A can be instantiated within the package in which it is defined. 
+It can not be instantiated outside the package, even though it has public constructor.
+package pack1;
+ 
+class A
+{
+    public A()
+    {
+         A a = new A(); //public constructor
+    }
+}
+ 
+package pack2;
+ 
+import pack1.*;
+ 
+class B
+{
+     	//Compile Time Error
+}
