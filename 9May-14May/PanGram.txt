@@ -1,0 +1,23 @@
+class Solution {
+    public boolean checkIfPangram(String sentence) {
+     
+        HashMap<Character,Integer> hm = new HashMap<>();
+        for(int i = 0; i < sentence.length(); i++) {
+            char c = sentence.charAt(i);
+            hm.put(c,hm.getOrDefault(c,0) + 1);
+        }
+        
+        for(int i = 0; i < sentence.length(); i++) {
+            char c = sentence.charAt(i);
+            if(hm.containsKey(c)) {
+                hm.put(c,hm.get(c) - 1);
+            }
+            else if(hm.get(c) == 1) {
+                hm.remove(c);
+            }
+        }
+        
+        return hm.size() >= 26;
+        
+    }
+}
